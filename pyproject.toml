@@ -1,7 +1,7 @@
 [project]
 name = "drift-monitor"
 version = "0.1.0"
-description = "Add your description here"
+description = "Drift monitoring project in bank data"
 readme = "README.md"
 authors = [
     { name = "Phijose J Philip", email = "phijosewiz@gmail.com" }
@@ -18,7 +18,7 @@ build-backend = "uv_build"
 
 [tool.ruff]
 # Target a specific Python version (e.g., Python 3.13)
-target-version = "py313"
+target-version = "py312"
 # Set the maximum line length (88 is the default, matching Black)
 line-length = 88
 # Exclude directories that don't need linting or formatting
@@ -70,10 +70,6 @@ addopts = [
 testpaths = [
     "tests",
 ]
-# Explicitly add paths to sys.path for test discovery
-pythonpath = [
-    "."
-]
 # Register custom test markers to prevent warning errors
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
@@ -85,4 +81,9 @@ filterwarnings = [
     "ignore::DeprecationWarning",
 ]
 
-
+[dependency-groups]
+dev = [
+    "pre-commit>=4.7.0",
+    "pytest>=9.2.0",
+    "ruff>=0.17.4",
+]
